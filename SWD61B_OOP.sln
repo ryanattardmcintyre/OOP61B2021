@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30204.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Week1_IntroToOOP", "Week1_IntroToOOP\Week1_IntroToOOP.csproj", "{0F928976-E5C4-4E3B-A362-58A73B20F085}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Week1_CircleExample", "Week1_CircleExample\Week1_CircleExample.csproj", "{7F04F988-0AC0-4E45-A5D0-D6A22B06D750}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Week2_ConstructorsAndInheritance", "Week2_ConstructorsAndInheritance\Week2_ConstructorsAndInheritance.csproj", "{5B4DF7DD-0CFD-41C3-96DC-462C605E669C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Week1_Worksheet1Task7", "Week1_Worksheet1Task7\Week1_Worksheet1Task7.csproj", "{A8B75BA3-F66D-44AC-93FE-44EFA60FF5FA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Week2_Worksheet3", "Week2_Worksheet3\Week2_Worksheet3.csproj", "{CCC3A547-AC92-4CF5-B30E-76CEC20F6E44}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Week3_Polymorphism", "Week3_Polymorphism\Week3_Polymorphism.csproj", "{F3287860-33C1-4651-97B2-CAC6DE0D5D17}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Week3_DrawingApp", "Week3_DrawingApp\Week3_DrawingApp.csproj", "{86BA627E-3487-4A68-B781-FD79997E72F6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0F928976-E5C4-4E3B-A362-58A73B20F085}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F928976-E5C4-4E3B-A362-58A73B20F085}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F928976-E5C4-4E3B-A362-58A73B20F085}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F928976-E5C4-4E3B-A362-58A73B20F085}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F04F988-0AC0-4E45-A5D0-D6A22B06D750}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F04F988-0AC0-4E45-A5D0-D6A22B06D750}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F04F988-0AC0-4E45-A5D0-D6A22B06D750}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F04F988-0AC0-4E45-A5D0-D6A22B06D750}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B4DF7DD-0CFD-41C3-96DC-462C605E669C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B4DF7DD-0CFD-41C3-96DC-462C605E669C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B4DF7DD-0CFD-41C3-96DC-462C605E669C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B4DF7DD-0CFD-41C3-96DC-462C605E669C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8B75BA3-F66D-44AC-93FE-44EFA60FF5FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8B75BA3-F66D-44AC-93FE-44EFA60FF5FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8B75BA3-F66D-44AC-93FE-44EFA60FF5FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8B75BA3-F66D-44AC-93FE-44EFA60FF5FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CCC3A547-AC92-4CF5-B30E-76CEC20F6E44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCC3A547-AC92-4CF5-B30E-76CEC20F6E44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCC3A547-AC92-4CF5-B30E-76CEC20F6E44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCC3A547-AC92-4CF5-B30E-76CEC20F6E44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3287860-33C1-4651-97B2-CAC6DE0D5D17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3287860-33C1-4651-97B2-CAC6DE0D5D17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3287860-33C1-4651-97B2-CAC6DE0D5D17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3287860-33C1-4651-97B2-CAC6DE0D5D17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86BA627E-3487-4A68-B781-FD79997E72F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86BA627E-3487-4A68-B781-FD79997E72F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86BA627E-3487-4A68-B781-FD79997E72F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86BA627E-3487-4A68-B781-FD79997E72F6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {88F4540C-EB50-45B9-8EF6-51912DE641A8}
+	EndGlobalSection
+EndGlobal
