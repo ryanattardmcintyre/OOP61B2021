@@ -4,50 +4,46 @@ using System.Text;
 
 namespace Week3_Polymorphism
 {
-    public class SavingsAccount
+    //static polymorphism : overloading - we add a new method with different parameters
+    //dynamic polymorphism: overriding - we change the implementation
+
+    //access modifiers:
+    //public - property/class is accessible from everywhere
+    //private - field is accessible only from the class where it is declared
+    //protected - field/property is accessible from the class or from the inherited classes
+    //internal - class is accessible from within the same project
+
+    public class SavingsAccount: BankAccount
     {
+        // Static Polymorphism
+         public SavingsAccount(double initialBalance): base(initialBalance)
+         {
+            Fee = 1;
+            ChargeLevelFee = 30;
+         }
 
-        //Constructor overloading
-
-         public SavingsAccount() //default constructor
-         { }
-
-         public SavingsAccount(double initialBalance)
+         public SavingsAccount(double fee, double chargeLevel, double initialBalance):base(initialBalance)
         {
-            Balance = initialBalance;
+            Fee = fee;
+            ChargeLevelFee = chargeLevel;
+        }
+
+         public double Fee { get; set; }
+         public double ChargeLevelFee { get; set; }
+
+        // Dynamic Polymorphism
+        public override double Withdraw(double amount)
+        {
+            base.Withdraw(amount);
+
+            if (Balance < ChargeLevelFee)
+                base.Withdraw(Fee);
+
+            return Balance;
         }
 
 
 
-
-
-
-
-        //Method Overloading can be achieved by either varying the number of parameters or the varying the data types of the parameters
-
-        public double Balance { get; set; }
-
-        public void Deposit (int amount)
-        {
-            Balance += amount;
-        }
-
-        public void Deposit (int amount , double charge)
-        {
-            Balance += amount;
-            Balance -= charge;
-        }
-
-        public void Deposit (double amount)
-        {
-            Balance += amount;
-        }
-
-        public void Deposit (double amount, double charge)
-        {
-            Balance += amount;
-            Balance -= charge;
-        }
 
     }
 }

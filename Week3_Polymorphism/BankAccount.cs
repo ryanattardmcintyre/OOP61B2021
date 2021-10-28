@@ -7,26 +7,28 @@ namespace Week3_Polymorphism
     public class BankAccount
     {
         public string IBAN { get; set; }
-        public double Balance { get; set; }
+
+        protected double balance;
+        public double Balance { get { return balance; } }
         public string ClientId { get; set; }
         public DateTime DateOpened { get; set; }
         public bool Active { get; set; }
 
         public BankAccount(double initialBalance)
         {
-            Balance = initialBalance;
+            balance = initialBalance;
         }
 
         public virtual double Deposit(double amount)
         {
-            Balance += amount;
+            balance += amount;
             return Balance;
         }
 
         public virtual double Withdraw(double amount)
         {
             if (Balance - amount >= 0)
-            { Balance -= amount; }
+            { balance -= amount; }
             return Balance;
         }
     }
