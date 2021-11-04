@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Week3_Polymorphism.Shapes;
+using System.Linq;
 
 namespace Week3_Polymorphism
 {
@@ -50,7 +51,26 @@ namespace Week3_Polymorphism
                         Console.WriteLine("Initial Balance:");
                         double balance = Convert.ToDouble(Console.ReadLine());
 
-                        BankAccount myBankAccount = new BankAccount(balance);
+                        Console.WriteLine("1. Fixed");
+                        Console.WriteLine("2. Savings");
+                        int accountChoice = Convert.ToInt32(Console.ReadLine());
+
+                        BankAccount myBankAccount; //note: just the declaration
+                        if (accountChoice == 1)
+                        {
+                            myBankAccount = new FixedAccount(balance); //initialization of Fixed
+                        }
+                        else if(accountChoice==2)
+                        {
+                            myBankAccount = new SavingsAccount(balance); //initialization of Savings
+                        }
+                        else
+                        {
+                            Console.WriteLine("Invalid input");
+                            break; //stops this iteration so it doesnt execute the following code
+                        }
+
+
                         myBankAccount.ClientId = id;
                         myBankAccount.IBAN = Guid.NewGuid().ToString();
                         myBankAccount.Active = true;
@@ -61,9 +81,74 @@ namespace Week3_Polymorphism
                         break;
 
                     case 2:
+
+                        Console.WriteLine("Input amount to deposit");
+                        double amount = Convert.ToDouble(Console.ReadLine());
+
+                        Console.WriteLine("Input bank account");
+                        string accountId = Console.ReadLine();
+
+                        BankAccount retrievedBankAccount = bank.SingleOrDefault(a => a.IBAN == accountId);
+
+                        //foreach (BankAccount a in bank)
+                        //{
+                        //    if (a.IBAN == accountId)
+                        //    {
+                        //        retrievedBankAccount = a;
+                        //        break;
+                        //    }
+                        //}
+
+                        if(retrievedBankAccount != null)
+                        {
+                            try
+                            {
+                                double newBalance = retrievedBankAccount.Deposit(amount);
+                                Console.WriteLine($"New Balance of account with IBAN {retrievedBankAccount.IBAN} is {newBalance}");
+                            }
+                            catch(Exception ex)
+                            {
+                                Console.WriteLine(ex.Message);
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("Bank account does not exist");
+                        }
+                        Console.WriteLine("Press a key to continue...");
+                        Console.ReadKey();
                         break;
 
                     case 3:
+                        Console.WriteLine("Input amount to withdraw");
+                        amount = Convert.ToDouble(Console.ReadLine());
+
+                        Console.WriteLine("Input bank account");
+                        accountId = Console.ReadLine();
+
+                        retrievedBankAccount = bank.SingleOrDefault(a => a.IBAN == accountId);
+
+                        //foreach (BankAccount a in bank)
+                        //{
+                        //    if (a.IBAN == accountId)
+                        //    {
+                        //        retrievedBankAccount = a;
+                        //        break;
+                        //    }
+                        //}
+
+                        if (retrievedBankAccount != null)
+                        {
+                            double newBalance = retrievedBankAccount.Withdraw(amount);
+                            Console.WriteLine($"New Balance of account with IBAN {retrievedBankAccount.IBAN} is {newBalance}");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Bank account does not exist");
+                        }
+                        Console.WriteLine("Press a key to continue...");
+                        Console.ReadKey();
+
                         break;
 
                     case 4: 

@@ -36,7 +36,7 @@ namespace Week3_Polymorphism
         {
             base.Withdraw(amount);
 
-            if (Balance < ChargeLevelFee)
+            if (Balance > ChargeLevelFee)
                 base.Withdraw(Fee);
 
             return Balance;
