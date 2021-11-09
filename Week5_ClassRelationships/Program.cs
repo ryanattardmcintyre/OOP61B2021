@@ -1,4 +1,5 @@
 ﻿using System;
+using Week5_ClassRelationships.Composition;
 
 namespace Week5_ClassRelationships
 {
@@ -6,7 +7,8 @@ namespace Week5_ClassRelationships
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Student myStudent = new Student(new Course());
+            
         }
     }
 }
