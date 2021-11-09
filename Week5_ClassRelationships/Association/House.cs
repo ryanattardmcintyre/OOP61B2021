@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Week5_ClassRelationships
+namespace Week5_ClassRelationships.Association
 {
     class House
     {
