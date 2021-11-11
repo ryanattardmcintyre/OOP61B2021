@@ -19,7 +19,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Week3_DrawingApp", "Week3_D
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Week5_ClassRelationships", "Week5_ClassRelationships\Week5_ClassRelationships.csproj", "{6C983B1C-929F-4C60-A561-D5DDF5CB3B28}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Week6_Abstraction", "Week6_Abstraction\Week6_Abstraction.csproj", "{AEA8F21E-F5E4-403D-AB91-8DC46420464D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Week6_Abstraction", "Week6_Abstraction\Week6_Abstraction.csproj", "{AEA8F21E-F5E4-403D-AB91-8DC46420464D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Week6_Worksheet6_Question3", "Week6_Worksheet6_Question3\Week6_Worksheet6_Question3.csproj", "{B456FDA8-2402-446B-ADE9-526B1DDA7422}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{AEA8F21E-F5E4-403D-AB91-8DC46420464D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AEA8F21E-F5E4-403D-AB91-8DC46420464D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AEA8F21E-F5E4-403D-AB91-8DC46420464D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B456FDA8-2402-446B-ADE9-526B1DDA7422}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B456FDA8-2402-446B-ADE9-526B1DDA7422}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B456FDA8-2402-446B-ADE9-526B1DDA7422}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B456FDA8-2402-446B-ADE9-526B1DDA7422}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

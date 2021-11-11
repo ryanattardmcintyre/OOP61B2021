@@ -10,6 +10,7 @@ namespace Week6_Abstraction
     {
         void Log(string message);
         void Log(Exception ex);
+         
     }
 
 
