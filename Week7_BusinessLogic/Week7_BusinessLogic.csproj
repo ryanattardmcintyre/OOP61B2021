@@ -74,6 +74,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\ConnectionDb.cs" />
+    <Compile Include="Repositories\ItemsRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="Context\ShoppingCartContextModel.edmx">
