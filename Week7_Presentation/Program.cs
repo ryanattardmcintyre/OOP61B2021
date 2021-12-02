@@ -21,14 +21,19 @@ namespace Week7_Presentation
     {
         static void Main(string[] args)
         {
-
             int choice = 0;
             ItemsRepository myItemsRepository = new ItemsRepository();
             do
             {
                 Console.WriteLine("1.   List Items");
                 Console.WriteLine("2.   Search Item");
+                Console.WriteLine("3.   Sort");
+
+                Console.WriteLine("5.   Adding an item");
+                Console.WriteLine("6.   Deleting an item");
+                Console.WriteLine("7.   Updating an item");
                 Console.WriteLine("999. Quit");
+
                 choice = Convert.ToInt32(Console.ReadLine());
 
                 switch(choice)
@@ -53,6 +58,40 @@ namespace Week7_Presentation
 
                         Console.WriteLine("\nPress a key to go back to main menu...");
                         Console.ReadKey();
+                        break;
+
+                    case 3:
+
+                        Console.Clear();
+                        Console.WriteLine("Sort by...");
+                        Console.WriteLine("1. Name");
+                        Console.WriteLine("2. Price");
+
+                        Console.Write("Input choice:");
+                        int choiceForSorting = Convert.ToInt32(Console.ReadLine());
+
+                        Console.WriteLine("Ascending? (y/n)");
+                        bool ascending = true;
+                        string choiceForAscending = Console.ReadLine();
+                        if (choiceForAscending.ToLower() == "y") ascending = true;
+                        else ascending = false;
+
+                        if(choiceForSorting == 1)
+                        {
+                            DisplayItems(myItemsRepository.Sort(SortCriteria.Name, ascending));
+                        }
+                        else
+                        {
+                           var sortedList = myItemsRepository.Sort(SortCriteria.Price, ascending);
+                            DisplayItems(sortedList);
+                        }
+
+                        Console.WriteLine("\nPress a key to go back to main menu...");
+                        Console.ReadKey();
+
+                        break;
+
+                    case 5:
                         break;
 
                 }

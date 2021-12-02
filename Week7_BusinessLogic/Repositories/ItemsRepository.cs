@@ -5,8 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using Week7_BusinessLogic.Context;
 
+
+
 namespace Week7_BusinessLogic.Repositories
 {
+    public enum SortCriteria {Name, Price }
+
     public class ItemsRepository: ConnectionDb
     {
         public ItemsRepository() : base() { }
@@ -23,7 +27,6 @@ namespace Week7_BusinessLogic.Repositories
             var list = from item in Entity.Items //this is linq //select * from Items
                        select item;
 
-
             return list.ToList();
         }
 
@@ -38,5 +41,48 @@ namespace Week7_BusinessLogic.Repositories
                        select item;
             return list.ToList();
         }
+
+        public List<Item> Sort(SortCriteria criterion, bool asc)
+        { 
+            switch(criterion)
+            {
+                case SortCriteria.Name:
+                    //return Entity.Items.OrderBy(x => x.Name).ToList();
+
+                    if (asc)
+                    {
+                        var list = from item in Entity.Items
+                                   orderby item.Name ascending
+                                   select item;
+                        return list.ToList();
+                    }
+                    else
+                    {
+                        var list = from item in Entity.Items
+                                   orderby item.Name descending
+                                   select item;
+                        return list.ToList();
+                    }
+
+                case SortCriteria.Price:
+                    if (asc)
+                    {
+                        return Entity.Items.OrderBy(x => x.Price).ToList();
+                    }
+                    else
+                    {
+                        return Entity.Items.OrderByDescending(x => x.Price).ToList();
+                    }
+                     
+            }
+            return Entity.Items.OrderBy(x => x.Name).ToList();
+        }
+
+        public void Add(Item i)
+        {
+            Entity.Items.Add(i);
+            Entity.SaveChanges();
+        }
+         
     }
 }
