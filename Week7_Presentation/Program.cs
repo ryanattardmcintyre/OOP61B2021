@@ -25,6 +25,7 @@ namespace Week7_Presentation
             ItemsRepository myItemsRepository = new ItemsRepository();
             do
             {
+                Console.Clear();
                 Console.WriteLine("1.   List Items");
                 Console.WriteLine("2.   Search Item");
                 Console.WriteLine("3.   Sort");
@@ -34,8 +35,17 @@ namespace Week7_Presentation
                 Console.WriteLine("7.   Updating an item");
                 Console.WriteLine("999. Quit");
 
-                choice = Convert.ToInt32(Console.ReadLine());
+                try
+                {
+                    choice = Convert.ToInt32(Console.ReadLine());
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Invalid input. Write only numbers listed in menu. Press a key to continue...");
+                    Console.WriteLine("Error: " + ex.Message);
+                    Console.ReadKey();
 
+                }
                 switch(choice)
                 {
                     case 1:
