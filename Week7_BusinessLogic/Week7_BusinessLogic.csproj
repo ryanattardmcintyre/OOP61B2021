@@ -54,6 +54,7 @@
     <Compile Include="Context\Category.cs">
       <DependentUpon>ShoppingCartContextModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Context\InheritedItem.cs" />
     <Compile Include="Context\Item.cs">
       <DependentUpon>ShoppingCartContextModel.tt</DependentUpon>
     </Compile>
@@ -73,6 +74,7 @@
       <DependentUpon>ShoppingCartContextModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\CategoryRepository.cs" />
     <Compile Include="Repositories\ConnectionDb.cs" />
     <Compile Include="Repositories\ItemsRepository.cs" />
   </ItemGroup>

@@ -23,6 +23,7 @@ namespace Week7_Presentation
         {
             int choice = 0;
             ItemsRepository myItemsRepository = new ItemsRepository();
+            CategoryRepository myCategoryRepository = new CategoryRepository();
             do
             {
                 Console.Clear();
@@ -102,6 +103,38 @@ namespace Week7_Presentation
                         break;
 
                     case 5:
+
+                        try
+                        {
+                            Item myNewItem = new Item();
+                            Console.Write("Name: ");
+
+                            myNewItem.Name = Console.ReadLine();
+                            Console.Write("Price: ");
+                            myNewItem.Price = Convert.ToDecimal(Console.ReadLine()); //this could be a line of code that may raise an exception
+
+                            //we list categories to the user
+
+                            var categories = myCategoryRepository.GetCategories();
+
+                            foreach (var category in categories)
+                            {
+                                Console.WriteLine($"{category.Id}. {category.Name}");
+                            }
+                            Console.Write("Category: ");
+                            myNewItem.CategoryId = Convert.ToInt32(Console.ReadLine()); //this may raise an exception
+
+                            myItemsRepository.Add(myNewItem); //this can throw an exception if the user has input a category id out of range
+
+                            Console.WriteLine("Item added successfully");
+                        }
+                        catch
+                        {
+                            Console.WriteLine("Invalid inputs. Check your inputs again next time.");
+                        }
+                        Console.WriteLine("\nPress a key to go back to main menu...");
+                        Console.ReadKey();
+
                         break;
 
                 }
