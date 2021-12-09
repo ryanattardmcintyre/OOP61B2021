@@ -80,9 +80,11 @@ namespace Week7_BusinessLogic.Repositories
 
         public void Add(Item i)
         {
-            Entity.Items.Add(i);
-            Entity.SaveChanges();
+            Entity.Items.Add(i);//this will save the item within the application (in memory)
+            Entity.SaveChanges();//this will save permanently the item in the db
         }
          
+
+        
     }
 }
