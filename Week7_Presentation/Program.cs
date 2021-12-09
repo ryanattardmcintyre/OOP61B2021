@@ -137,6 +137,79 @@ namespace Week7_Presentation
 
                         break;
 
+                    case 6:
+                        Console.WriteLine("Input item id to delete");
+                        int itemToDelete = Convert.ToInt32(Console.ReadLine());
+
+                        if (myItemsRepository.GetItem(itemToDelete) == null)
+                        {
+                            Console.WriteLine("Item does not exist or invalid id");
+                        }
+                        else
+                        {
+                            try
+                            {
+                                myItemsRepository.Delete(itemToDelete);
+                                Console.WriteLine("Item deleted successfully");
+                            }
+                            catch
+                            {
+                                Console.WriteLine("Item failed to delete because it is being refrenced in other records");
+                            }
+                        }
+                        Console.WriteLine("\nPress a key to go back to main menu...");
+                        Console.ReadKey();
+                        break;
+                    case 7:
+                        try
+                        {
+                            Console.WriteLine("Which item (id) you would like to update? ");
+                            int itemToUpdate = Convert.ToInt32(Console.ReadLine());
+
+                            Console.Write("Input updated name (leave blank if you would like to retain original value): ");
+                            string name = Console.ReadLine();
+
+                            Console.Write("Input updated price (leave blank if you would like to retain original value): ");
+                            string priceInString = Console.ReadLine();
+
+                            Console.WriteLine();
+                            var categories2 = myCategoryRepository.GetCategories();
+
+                            foreach (var category in categories2)
+                            {
+                                Console.WriteLine($"{category.Id}. {category.Name}");
+                            }
+
+                            Console.Write("Input updated category (id) (leave blank if you would like to retain original value): ");
+                            string categoryIdInString = Console.ReadLine();
+
+                            var originalItem = myItemsRepository.GetItem(itemToUpdate);
+                            if (string.IsNullOrEmpty(name) == false)
+                            { originalItem.Name = name; }
+
+                            if (string.IsNullOrEmpty(priceInString) == false)
+                            { originalItem.Price = Convert.ToDecimal(priceInString); }
+
+                            if (string.IsNullOrEmpty(categoryIdInString) == false)
+                            { originalItem.CategoryId = Convert.ToInt32(categoryIdInString); }
+                            //note:
+                            //when you specify a foreign key e.g CategoryId, VS will create (navigational) property for it
+                            //you will end up with the foreign key i.e. CategeryId, & Category
+                            //navigational properties are there to facilitate how you get info from referenced tables, so you 
+                            //will avoid implementing JOIN LINQ statements
+
+                            myItemsRepository.Update(originalItem.Id, originalItem.Name, originalItem.CategoryId, originalItem.Price);
+
+                            Console.WriteLine("Updated successfully");
+                        }
+                        catch
+                        {
+                            Console.WriteLine("Check your inputs");
+                        }
+                        Console.WriteLine("\nPress a key to go back to main menu...");
+                        Console.ReadKey();
+                        break;
+
                 }
 
             } while (choice != 999);
@@ -146,7 +219,7 @@ namespace Week7_Presentation
         {
             foreach (var item in items)
             {
-                Console.WriteLine($"Name: {item.Name}\tPrice: Eur{item.Price}");
+                Console.WriteLine($"{item.Id} - Name: {item.Name}\tPrice: Eur{item.Price}");
             }
         }
     }

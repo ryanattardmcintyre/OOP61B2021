@@ -83,6 +83,30 @@ namespace Week7_BusinessLogic.Repositories
             Entity.Items.Add(i);//this will save the item within the application (in memory)
             Entity.SaveChanges();//this will save permanently the item in the db
         }
+
+
+        public Item GetItem(int id)
+        {
+            return Entity.Items.SingleOrDefault(x =>x.Id == id);
+        }
+
+        public void Update(int id, string name, int categoryId, decimal price)
+        {
+            var originalItem = GetItem(id);
+            originalItem.Name = name;
+            originalItem.CategoryId = categoryId;
+            originalItem.Price = price;
+
+            Entity.SaveChanges();
+        }
+
+        public void Delete(int id)
+        {
+            var itemToDelete = GetItem(id);
+            Entity.Items.Remove(itemToDelete);
+            Entity.SaveChanges();
+
+        }
          
 
         
