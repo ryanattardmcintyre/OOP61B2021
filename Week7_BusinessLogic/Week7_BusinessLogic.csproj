@@ -77,6 +77,8 @@
     <Compile Include="Repositories\CategoryRepository.cs" />
     <Compile Include="Repositories\ConnectionDb.cs" />
     <Compile Include="Repositories\ItemsRepository.cs" />
+    <Compile Include="ViewModels\ItemsPerCategoryViewModel.cs" />
+    <Compile Include="ViewModels\ItemWithCategoryViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="Context\ShoppingCartContextModel.edmx">

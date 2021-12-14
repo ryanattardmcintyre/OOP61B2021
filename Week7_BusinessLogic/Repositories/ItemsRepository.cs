@@ -4,8 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Week7_BusinessLogic.Context;
-
-
+using Week7_BusinessLogic.ViewModels;
 
 namespace Week7_BusinessLogic.Repositories
 {
@@ -39,6 +38,64 @@ namespace Week7_BusinessLogic.Repositories
             var list = from item in Entity.Items
                        where item.Name.Contains(keyword)
                        select item;
+            return list.ToList();
+        }
+
+
+        public List<ItemWithCategoryViewModel> GetItemsWithCategory()
+        {
+            var list = from item in Entity.Items
+                       join category in Entity.Categories
+                       on item.CategoryId equals category.Id
+                       select new ItemWithCategoryViewModel()
+                       {
+                            Id = item.Id,
+                            Name = item.Name,
+                            CategoryName = category.Name
+                       };
+
+            return list.ToList();
+        }
+
+
+        public List<ItemsPerCategoryViewModel> GetItemsGroupedByCategory()
+        {
+            /* SQL:
+             *  Select Categories.Name, Count(Items.Id)
+                from Categories inner join Items 
+                on Categories.Id = items.CategoryId
+                group by Categories.Name
+             */
+
+            var list = from category in Entity.Categories
+                       group category by category into g
+                       select new ItemsPerCategoryViewModel()
+                       {
+                           CategoryName = g.Key.Name,
+                           ItemsCount = g.Key.Items.Count
+                       };
+            return list.ToList();
+        }
+
+
+        public List<ItemsPerCategoryViewModel> GetAvgPriceGroupedByCategory()
+        {
+            /* SQL:
+             *  Select Categories.Name, Count(Items.Id)
+                from Categories inner join Items 
+                on Categories.Id = items.CategoryId
+                group by Categories.Name
+             */
+
+            var list = from category in Entity.Categories
+                       group category by category into g
+                //       where g.Key.Items.Count() > 1
+                       select new ItemsPerCategoryViewModel()
+                       {
+                           CategoryName = g.Key.Name,
+                           ItemsCount = g.Key.Items.Count,
+                           AvgPrice =  g.Key.Items.Count > 0 ?  g.Key.Items.Average(x=>x.Price)  : 0
+                       };
             return list.ToList();
         }
 

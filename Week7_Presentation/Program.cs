@@ -30,10 +30,11 @@ namespace Week7_Presentation
                 Console.WriteLine("1.   List Items");
                 Console.WriteLine("2.   Search Item");
                 Console.WriteLine("3.   Sort");
-
+                Console.WriteLine("4.   List Items By Category");
                 Console.WriteLine("5.   Adding an item");
                 Console.WriteLine("6.   Deleting an item");
                 Console.WriteLine("7.   Updating an item");
+                Console.WriteLine("8.   List No of Items Per Category");
                 Console.WriteLine("999. Quit");
 
                 try
@@ -101,6 +102,18 @@ namespace Week7_Presentation
                         Console.ReadKey();
 
                         break;
+
+                    case 4:
+                        var list = myItemsRepository.GetItemsWithCategory();
+                        foreach(var item in list)
+                        {
+                            Console.WriteLine($"{item.Id} - {item.Name} from {item.CategoryName}");
+                        }
+
+                        Console.WriteLine("\nPress a key to go back to main menu...");
+                        Console.ReadKey();
+                        break;
+
 
                     case 5:
 
@@ -209,6 +222,20 @@ namespace Week7_Presentation
                         Console.WriteLine("\nPress a key to go back to main menu...");
                         Console.ReadKey();
                         break;
+
+                    case 8:
+                        var list2 = myItemsRepository.GetAvgPriceGroupedByCategory();
+                        foreach(var g in list2)
+                        {
+                            Console.WriteLine($"Category: {g.CategoryName}: {g.ItemsCount} items with avg price: {g.AvgPrice}");
+                        }
+                        Console.WriteLine("\nPress a key to go back to main menu...");
+                        Console.ReadKey();
+
+
+                        break;
+
+
 
                 }
 
